@@ -21,29 +21,13 @@ gulp.task("html", function () {
         .pipe(gulp.dest("./build"))
 });
 
-gulp.task("htmlEn", function () {
-    return gulp.src("./html/en/*.html")
-        .pipe(replace(".html", ""))
-        .pipe(replace("../css/styles.css", "../css/style.css"))
-        .pipe(replace('<link rel="stylesheet" href="../../css/reset.css">', ""))
-        .pipe(gulp.dest("./build/en"))
-});
-
-gulp.task("htmlEs", function () {
-    return gulp.src("./html/es/*.html")
-        .pipe(replace(".html", ""))
-        .pipe(replace("../css/styles.css", "../css/style.css"))
-        .pipe(replace('<link rel="stylesheet" href="../../css/reset.css">', ""))
-        .pipe(gulp.dest("./build/es"))
-});
-
 gulp.task("css", function () {
     const plugins = [
         autoprefixer({ browsers: ["last 1 version"] }),
         cssnano()
     ];
     return gulp.src("./css/*.css")
-        .pipe(concat("style.css"))
+        .pipe(concat("styles.css"))
         .pipe(postcss(plugins))
         .pipe(gulp.dest("./build/css"));
 });
@@ -53,6 +37,11 @@ gulp.task("js", function () {
         .pipe(uglify())
         .pipe(gulp.dest("./build/js"))
 })
+
+gulp.task("fonts", function () {
+    return gulp.src("fonts/*")
+        .pipe(gulp.dest("./build/fonts"))
+});
 
 gulp.task("images", function () {
     return gulp.src("images/**/*.+(png|jpg|gif|svg)")
@@ -70,4 +59,4 @@ gulp.task("clean", function (done) {
     return done();
 })
 
-gulp.task("dist", gulp.series("clean", "html", "htmlEn", "htmlEs", "css", "js", "images", "favicon"));
+gulp.task("dist", gulp.series("clean", "html", "css", "js", "fonts", "images"));

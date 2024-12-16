@@ -1,6 +1,29 @@
 {
+  "name": "marcelo_valente",
+  "version": "1.0.0",
+  "description": "Website for Marcelo Valente",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FranciscoAraujoPT/MarceloValente.git"
+  },
+  "author": "Francisco Araujo",
+  "license": "ISC",
+  "devDependencies": {
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-postcss": "^9.0.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-useref": "^5.0.0",
+    "postcss": "^8.3.5"
+  },
   "dependencies": {
     "ejs": "^3.1.10",
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-rename": "^2.0.0",
+    "gulp-replace": "^1.1.3"
   }
 }
